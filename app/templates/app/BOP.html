@@ -1,0 +1,18 @@
+{% extends 'app/basic.html' %}
+    {% block content %}
+<style>
+    .insert{
+        margin: 40px 0px 0px 100px
+    }
+</style>
+    <div class="insert">
+        <form  class="form-horizontal" method="POST" enctype="multipart/form-data" >
+            {% csrf_token %}
+            {% for field in form %}
+            <h2><label><h4>{{ field.label_tag}} : {{ field }}</h4></label></h2>
+            {% endfor %}
+            <h3><button type="submit" class="bnt bnt-success">Submit</button></h3>
+        </form>
+    </div>
+
+    {% endblock %}

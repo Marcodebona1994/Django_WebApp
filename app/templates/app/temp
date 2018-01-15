@@ -1,0 +1,195 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: grey;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+li {
+    float: left;
+    font-family: Arial;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+}
+
+
+div.content {
+    background-color: white;
+    width: auto;
+    border: 2px solid green;
+    padding: 2px;
+    margin: 30px 30px 30px 30px;
+    font-family: Arial;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+
+}
+
+div.format {
+    background-color: white;
+    width: auto;
+    padding: 2px;
+    margin: 10px 10px 10px 10px;
+    font-family: Arial;
+
+}
+
+p { margin: 10px 10px 10px 10px; }
+
+.title{ text-align: center; font-weight: bold; }
+
+input[type=text], select {
+    width: 25%;
+    padding: 10px;
+    margin: 30px 30px 30px 30px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 25%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 30px 30px 30px 30px ;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+.fileUpload {
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
+}
+.fileUpload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+.header{
+    background-color: red;
+    height: 200px;
+
+}
+
+<body>
+    <header class="container">
+        <div class="row">
+            <img src="{%static 'app/image/logo_univr.jpg' %}" width="400" class="img-responsive" ></div>
+            <ul >
+                <li><h3>Home</h3></li>
+                <li><h3>Guida</h3></li>
+                <li><h3>Contatti</h3></li>
+            </ul>
+            <div class="col-md-2 align-right"><img src="{%static 'app/image/logo.png' %}" width="400" class="img-responsive" ></div>
+        </div>
+
+    </header>
+</body>
+</html>
+
+<link href= "{% static 'app/css/bootstrap.min.css'%}" rel="stylesheet" type = "text/css"/>
+<a href="contact.html"><img src="{%static 'app/image/eng.png' %}" class="img-responsive" id="eng"/></a>
+{% extends 'app/basic.html' %}
+    {% block content %}
+<style>
+    .insert{
+        margin: 40px 0px 0px 100px
+    }
+</style>
+    <div class="insert">
+        <form  class="form-horizontal" method="POST" enctype="multipart/form-data" >
+            {% csrf_token %}
+            {% for field in form %}
+                <div class="form-group">
+                    <label><h5>{{ field.label_tag}}</h5></label>
+                    <div class="format" ><h6>{{ field }}</h6></div>
+                </div>
+            {% endfor %}
+                <div class="form-group">
+                    <button type="submit" class="bnt bnt-success">Submit</button>
+                </div>
+        </form>
+    </div>
+
+    {% endblock %}
+{% extends 'app/basic.html' %}
+    {% block content %}
+    {% load staticfiles %}
+<style>
+    li{
+        display: inline;
+    }
+</style>
+<div class="container" >
+    <ul>
+      <li>
+        <h3>Rappresentazione della Bag Of Peaks</h3>
+          {{path}}
+          {% for p in path %}
+            <p>{{path}}</p>
+            <img src="{{p}}BOP.png" class="img-responsive"/>
+          {% endfor %}
+      </li>
+      <li>
+        <h3>Analisi della prima traccia</h3>
+          {% for p in path %}
+              {% for f in files %}
+              <p>{{path}}{{f}}</p>
+              <img src="{{p}}{{f}}" class="img-responsive"/>
+              {% endfor %}
+          {% endfor %}
+
+      </li>
+    </ul>
+</div>
+    {% endblock %}
+{% extends 'app/basic.html' %}
+    {% block content %}
+    {% load staticfiles %}
+<style>
+    li{
+        display: inline;
+    }
+</style>
+<div class="container" >
+    <ul>
+      <li>
+        <h3>Rappresentazione della Bag Of Peaks</h3>
+            <img src="{%static 'app/Img/BOP.png' %}" class="img-responsive"/>
+      </li>
+      <li>
+        <h3>Analisi della prima traccia</h3>
+          {% for f in files %}
+              <img src="{%static 'app/Img/'}{{f}}" class="img-responsive"/>
+          {% endfor %}
+      </li>
+    </ul>
+</div>
+    {% endblock %}

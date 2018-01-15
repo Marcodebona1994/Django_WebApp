@@ -1,0 +1,41 @@
+{% extends 'app/basic.html' %}
+{% block content %}
+<style>
+.head{
+    margin:40px 0px 0px 200px;
+}
+.guida{
+    margin-left: 400px;
+}
+
+</style>
+<div class="head">
+    <div class=guida"><h1><strong>Guida all'uso delle applicazioni</strong> </h1></div>
+    <div class="col-sm-6">
+        <h3>Bag Of Peaks </h3>
+        <h4> Campi necessari all'avvio dell'applicazione </h4>
+        <ul>
+            <li><strong>Grandezza del Dizionario ---></strong>  Dimensione massima del numero di Cluster </li>
+            <li>che verranno creati e che realizzerano la rappresentazione finale</li>
+            <li><strong>Numero di picchi ---></strong> valore corrispondente al numero di picchi da estrarre</li>
+            <li>da ogni traccia inserita </li>
+            <li><strong>Data ---></strong> Matrice .mat contenete le tracce degli spettri NMR </li>
+            <li><strong>Ppm ---></strong>:Matrice .mat contenete l'array di locazione dei punti nella traccia </li>
+        </ul>
+    </div>
+    <div class="col-sm-6">
+        <h3>Probabilistic Latent Semantic Analysis </h3>
+        <h4> Campi necessari all'avvio dell'applicazione </h4>
+        <ul>
+            <li><strong>Grandezza del Dizionario ---></strong>  Dimensione massima del numero di Cluster che verranno creati e che </li>
+            <li>realizzerano la rappresentazione finale
+            <li><strong>Numero di picchi ---></strong> valore corrispondente al numero di picchi da estrarre da ogni traccia inserita </li>
+            <li><strong>Data ---></strong> Matrice .mat contenete le tracce degli spettri NMR (tracce sulle righe, picchi sulle colonne)</li>
+            <li><strong>Ppm ---></strong> Matrice .mat contenete l'array di locazione dei punti nella traccia </li>
+            <li><strong>Topic ---></strong> Numero di Topic che si vuole estrarre dall'analisi </li>
+        </ul>
+    </div>
+</div>
+
+
+{% endblock %}

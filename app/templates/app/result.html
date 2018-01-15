@@ -1,0 +1,26 @@
+{% extends 'app/basic.html' %}
+    {% block content %}
+    {%load staticfiles%}
+<style>
+    li{
+        display: inline-block;
+    }
+</style>
+<div class="container" >
+    <ul>
+      <li>
+        <h3>Rappresentazione della Bag Of Peaks</h3>
+          <img src="{%static 'app/Img/BOP/BOP.png' %}" class="img-responsive"/>
+        </a>
+      </li>
+      <li>
+        <h3>Analisi della prima traccia</h3>
+          {% for f in files %}
+          <img src="{%static 'app/Img/BOP/' %}{{f}}" class="img-responsive"/>
+          {% endfor %}
+          </a>
+      </li>
+    </ul>
+</div>
+
+  {%endblock%}

@@ -1,0 +1,22 @@
+{% extends 'app/basic.html' %}
+    {% block content %}
+    {%load staticfiles%}
+<style>
+    li{
+        display: inline-block;
+    }
+</style>
+<div class="container" >
+    <ul>
+      <li>
+        <h3>PLSA----WORD TOPIC DISTRIBUTION</h3>
+          <img src="{%static 'app/Img/PLSA/wt.png' %}" class="img-responsive"/>
+      </li>
+      <li>
+        <h3>PLSA----TOPIC DOCUMENT DISTRIBUTION</h3>
+          <img src="{%static 'app/Img/PLSA/td.png' %}" class="img-responsive"/>
+      </li>
+    </ul>
+</div>
+
+  {%endblock%}
